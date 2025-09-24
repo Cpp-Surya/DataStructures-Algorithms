@@ -255,6 +255,31 @@ void rearrange(Array& arr){
     }
 }
 
+Array* merge(Array arr1, Array arr2){
+    Array* merged_arr = new Array();
+    merged_arr->max_size = 10;
+    int i,j,k;
+    i=j=k=0;
+    while(i<arr1.length && j<arr2.length){
+        if(arr1.A[i] < arr2.A[j]){
+            merged_arr->A[k] = arr1.A[i];
+            k++,i++,merged_arr->length++;
+        }else{
+            merged_arr->A[k] = arr2.A[j];
+            k++,j++,merged_arr->length++;
+        }
+    }
+    for(;i<arr1.length;i++){
+        merged_arr->A[k] = arr1.A[i];
+        k++,merged_arr->length++;
+    }
+    for(;j<arr2.length;j++){
+        merged_arr->A[k] = arr2.A[j];
+        k++,merged_arr->length++;
+    }
+    return merged_arr;
+}
+
 int main(){
     Array arr{{32,56,76,12,100},5,10};
     display(arr);
@@ -317,5 +342,13 @@ int main(){
     display(mixed_arr);
     rearrange(mixed_arr);
     display(mixed_arr);
+     Array sorted_arr1{{1,3,5,7,9},5,10};
+    Array sorted_arr2{{2,4,6,8},4,10};
+    Array* merged_arr = merge(sorted_arr1,sorted_arr2);
+    std::cout<<"Merged array length: "<<merged_arr->length<<"\n";
+    display(sorted_arr1);
+    display(sorted_arr2);
+    display(*merged_arr);
+    delete merged_arr;
     return 0;
 }

@@ -11,6 +11,8 @@ g++ ../case_change.cpp -o case_change
 g++ ../vowel_consonant_word_count.cpp -o vowel_consonant_word_count
 g++ ../validate_string.cpp -o validate_string
 g++ ../compare_two_strings.cpp -o compare_two_strings
+g++ ../finding_duplicates_hashtable.cpp -o finding_duplicates_hashtable
+g++ ../finding_duplicates_bitwise.cpp -o finding_duplicates_bitwise
 
 #Run exe
 ./strings
@@ -19,6 +21,8 @@ g++ ../compare_two_strings.cpp -o compare_two_strings
 ./vowel_consonant_word_count
 ./validate_string
 ./compare_two_strings
+./finding_duplicates_hashtable
+./finding_duplicates_bitwise
 
 #Exit and remove build
 cd .. && rm -rf build

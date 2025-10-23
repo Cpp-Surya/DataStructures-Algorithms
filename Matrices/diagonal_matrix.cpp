@@ -1,9 +1,9 @@
 #include <memory>
 #include <iostream>
 
-class Matrix{
+class DiagonalMatrix{
     public:
-        Matrix(int n):size(n){
+        DiagonalMatrix(int n):size(n){
             A = std::make_unique<int[]>(size);
         }
 
@@ -40,9 +40,12 @@ class Matrix{
 };
 
 int main(){
-    Matrix m(5);
+    std::cout<<"--------------------\n";
+    std::cout<<"Diagonal matrix\n";
+    DiagonalMatrix m(5);
     for(int i=0,j=0,value=55;i<5&&j<5;i++,j++,value+=10){
         m.set(i,j,value);
     }
     m.display();
+    std::cout<<"--------------------\n";
 }

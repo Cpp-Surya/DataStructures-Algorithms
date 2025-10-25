@@ -1,3 +1,7 @@
+/*
+Diagonal Matrix: Except diagonal elements all other elements should be zero
+*/
+
 #include <memory>
 #include <iostream>
 

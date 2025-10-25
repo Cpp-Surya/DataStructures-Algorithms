@@ -1,3 +1,7 @@
+/*
+Lower Triangular Matrix: A square matrix with non-zero elements in the lower triangular part and zeros in the upper triangular part.
+*/
+
 #include <memory>
 #include <iostream>
 
@@ -10,11 +14,11 @@ class LowerTriangularMatrix{
     
     private:
         std::unique_ptr<int[]> matrix;
-        int size;
+        int n;
 };
 
-LowerTriangularMatrix::LowerTriangularMatrix(int dimension):size(dimension){
-    matrix = std::make_unique<int[]>((size*(size+1))/2);
+LowerTriangularMatrix::LowerTriangularMatrix(int dimension):n(dimension){
+    matrix = std::make_unique<int[]>((n*(n+1))/2);
 }
 
 void LowerTriangularMatrix::set(int i, int j, int value){
@@ -23,7 +27,7 @@ void LowerTriangularMatrix::set(int i, int j, int value){
         //matrix[(i*(i+1)/2)+j] = value;
 
         //Column major mapping
-        matrix[(size*j-((j*(j-1))/2)+(i-j))] = value;
+        matrix[(n*j-((j*(j-1))/2)+(i-j))] = value;
     }
 }
 
@@ -33,21 +37,21 @@ int LowerTriangularMatrix::get(int i, int j){
         //return matrix[(i*(i+1)/2)+j];
 
         //Column major mapping
-        return matrix[(size*j-((j*(j-1))/2)+(i-j))];
+        return matrix[(n*j-((j*(j-1))/2)+(i-j))];
     }else{
         return 0;
     }
 }
 
 void LowerTriangularMatrix::display(){
-    for(int i=0;i<size;i++){
-        for(int j=0;j<size;j++){
+    for(int i=0;i<n;i++){
+        for(int j=0;j<n;j++){
             if(i>=j){
                 //Row major mapping
                 //std::cout<<matrix[(i*(i+1)/2)+j]<<" ";
 
                 //Column major mapping
-                std::cout<<matrix[(size*j-((j*(j-1))/2)+(i-j))]<<" ";
+                std::cout<<matrix[(n*j-((j*(j-1))/2)+(i-j))]<<" ";
             }else{
                 std::cout<<0<<" ";
             }
@@ -60,7 +64,10 @@ void LowerTriangularMatrix::display(){
 int main(){
     std::cout<<"--------------------\n";
     std::cout<<"Lower triangular matrix\n";
-    int dimensions=5,random_num{1};
+    int dimensions,random_num{1};
+    // std::cout<<"Enter dimensions: ";
+    // std::cin>>dimensions;
+    dimensions = 4;
     LowerTriangularMatrix lm(dimensions);
     for(int i=0;i<dimensions;i++){
         for(int j=0;j<dimensions;j++){

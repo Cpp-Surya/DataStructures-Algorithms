@@ -5,14 +5,20 @@ rm -rf build
 mkdir build && cd build
 
 #Build exe
-g++ ../second_largest_element.cpp -o second_largest_element
-g++ ../check_array_is_sorted.cpp -o check_array_is_sorted
-g++ ../remove_duplicates.cpp -o remove_duplicates
+#g++ ../second_largest_element.cpp -o second_largest_element
+#g++ ../check_array_is_sorted.cpp -o check_array_is_sorted
+#g++ ../remove_duplicates.cpp -o remove_duplicates
+#g++ ../rotate_array.cpp -o rotate_array
+#g++ ../move_zeros_to_end.cpp -o move_zeros_to_end
+g++ ../union_of_two_sorted_arrays.cpp -o union_of_two_sorted_arrays
 
 #Run exe
-./second_largest_element
-./check_array_is_sorted
-./remove_duplicates
+#./second_largest_element
+#./check_array_is_sorted
+#./remove_duplicates
+#./rotate_array
+#./move_zeros_to_end
+./union_of_two_sorted_arrays
 
 #Exit and remove build
 cd .. && rm -rf build
